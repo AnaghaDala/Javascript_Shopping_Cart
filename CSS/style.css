@@ -1,0 +1,95 @@
+body { 
+    background-color:#7be0eb;
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding:0;
+  }
+  
+  header {
+    background-color: #9db2d7;
+    padding: 15px;
+    color: #c43b84;
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+  
+  nav { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  nav a {
+    text-decoration: none;
+    color: #341156;
+    font-size: 18px;
+  }
+  
+  .right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .badge {
+    padding: 0 9px;
+    background-color: #331586;
+    color: #70ae84;
+    border-radius: 50%;
+  }
+  
+  .section {
+    padding: 30px;
+  }
+  
+  .card {
+    background-color: #3ba4b9;
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(145, 51, 204, 0.1);
+    margin: 30px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #05a2ce;
+  }
+  
+  .card span {
+    font-weight: bold;
+    color: #6d5664;
+  }
+  
+  .card i {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #2ca965;
+  }
+  
+  .shopping-icon {
+    font-size: 40px;
+    color: #6586bf;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
