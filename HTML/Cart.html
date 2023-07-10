@@ -1,0 +1,59 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 text-center p-1 text-danger">
+                <h2><u>Shopping Cart</u></h2>
+            </div>
+            <div class="col-md-2 text-left text-danger p-4">
+                <i class='bx bx-exit'></i>
+                <a href="./Home.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Home</a>
+            </div>
+        </div>
+    </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <body></body>
+     <div class="container">
+            <div class="row">
+                <div class="col-md-3 p-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <img src="../product_images/dress.jpeg" class="card-img-top">
+                        </div>
+                        
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dress</h5>
+                        <div class="cart-price">₹3000</div>
+                            <input type="number" class="cart-quantity" placeholder="Quantity" onchange="updateTotalPrice()" />
+                        </div>
+                        <div class="text-center">
+                            <div>Total</div>
+                            <div class="Total-Price" id="totalPrice">₹3000</div>
+                            <button type="submit" class="btn btn-danger">Order Now</button>
+                        <i class="bx bx-x-circle" id="close-cart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            function updateTotalPrice() {
+                var quantity = document.querySelector(".cart-quantity").value;
+                var price = 3000; // Price per item
+                var totalPrice = price * quantity;
+                document.querySelector("#totalPrice").textContent = "₹" + totalPrice;
+            }
+        </script>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </body>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
