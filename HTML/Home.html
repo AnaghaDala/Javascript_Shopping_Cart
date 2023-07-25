@@ -6,7 +6,8 @@
     <title>Home</title>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
     <link rel="stylesheet"  href="../CSS/style.css">
-
+    <link href="../Bootstrap/Css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/Home.js"></script>
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
         <i class='bx bxs-cart' ></i>
     </header>
 
-    <!--item section-->
+  <!--item section-->
     <section>
         <div>
             <h2>Shopping Products</h2>
@@ -28,13 +29,25 @@
             <h2>Hat</h2>
             <span>₹500</span>
             <i class='bx bxs-t-shirt'></i>
-        </div>
+            <button onclick="addToCart('Hat','../product_images/hat.jpg', 500)">
+                <div class="col-md-2 text-left text-danger p-4">
+                    <i class='bx bx-exit'></i>
+                    <a href="./Cart.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Add to Cart</a>
+                </div>
+            </button>
+    </div>
+          </div>
 
         <div>
             <img src="../product_images/wallet.jpeg" alt="Loading" width="259px" height="300px">
             <h2>Wallet</h2>
             <span>₹3000</span>
             <i class='bx bxs-wallet'></i>
+            <button onclick="addToCart('Wallet','../product_images/wallet.jpeg', 3000)">
+                <div class="col-md-2 text-left text-danger p-4">
+               <i class='bx bx-exit'></i>
+               <a href="./Cart.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Add to Cart</a></button>
+
         </div>
 
         <div>
@@ -42,6 +55,10 @@
             <h2>Sandals</h2>
             <span>₹5000</span>
             <i class='bx bxs-t-shirt'></i>
+            <button onclick="addToCart('Sandals', '../product_images/sandals.jpg', 5000)">
+                <div class="col-md-2 text-left text-danger p-4">
+               <i class='bx bx-exit'></i>
+               <a href="./Cart.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Add to Cart</a></button>
         </div>
 
         <div>
@@ -49,6 +66,10 @@
             <h2>Sling Bag</h2>
             <span>₹999</span>
             <i class='bx bxs-wallet'></i>
+            <button onclick="addToCart('Sling bag', '../product_images/sling bag.jpeg', 999)">
+                <div class="col-md-2 text-left text-danger p-4">
+               <i class='bx bx-exit'></i>
+               <a href="./Cart.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Add to Cart</a></button>
         </div>
 
         <div>
@@ -56,20 +77,32 @@
             <h2>Clock</h2>
             <span>₹499</span>
             <i class='bx bxs-t-shirt'></i>
+            <button onclick="addToCart('Clock', '../product_images/Clock.jpeg', 499)">
+                <div class="col-md-2 text-left text-danger p-4">
+               <i class='bx bx-exit'></i>
+               <a href="./Cart.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Add to Cart</a></button>
         </div>
 
-        <!-- <div>
+        <div>
             <img src="../product_images/clips.jpeg" alt="Loading" width="259px" height="300px">
             <h2>Clips</h2>
             <span>₹199</span>
             <i class='bx bxs-wallet'></i>
-        </div> -->
+            <button onclick="addToCart('clips', '../product_images/Clips.jpeg', 199)">
+                <div class="col-md-2 text-left text-danger p-4">
+               <i class='bx bx-exit'></i>
+               <a href="./Cart.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Add to Cart</a></button>
+        </div>
 
         <div>
             <img src="../product_images/earrings.jpeg" alt="Loading" width="259px" height="300px">
             <h2>Earrings</h2>
             <span>₹800</span>
             <i class='bx bxs-wallet'></i>
+            <button onclick="addToCart('Earrings', '../product_images/earrings.jpeg', 800)">
+                <div class="col-md-2 text-left text-danger p-4">
+               <i class='bx bx-exit'></i>
+               <a href="./Cart.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Add to Cart</a></button>
         </div>
 
         <div>
@@ -77,6 +110,10 @@
             <h2>Dress</h2>
             <span>₹3000</span>
             <i class='bx bxs-t-shirt'></i>
+            <button onclick="addToCart('Dress', '../product_images/dress.jpeg', 3000)">
+                <div class="col-md-2 text-left text-danger p-4">
+               <i class='bx bx-exit'></i>
+               <a href="./Cart.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Add to Cart</a></button>
         </div>
 
         <div>
@@ -84,6 +121,10 @@
             <h2>Necklace</h2>
             <span>₹500</span>
             <i class='bx bxs-wallet'></i>
+            <button onclick="addToCart('Necklace', '../product_images/necklace.jpeg', 500)">
+                <div class="col-md-2 text-left text-danger p-4">
+               <i class='bx bx-exit'></i>
+               <a href="./Cart.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Add to Cart</a></button>
         </div>
 
         <div>
@@ -91,13 +132,92 @@
             <h2>Pots</h2>
             <span>₹499</span>
             <i class='bx bxs-t-shirts'></i>
-        </div>
+            <button onclick="addToCart('Pots', 'pots.jpeg', 499)">
+                <div class="col-md-2 text-left text-danger p-4">
+               <i class='bx bx-exit'></i>
+               <a href="./Cart.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Add to Cart</a></button>
+            </div>
 
+    <script>
+        function addToCart(productName,images, price) {
+            const cartItem = {
+                name: productName,
+                product_images:images,
+                price: price,
+                quantity: 1 
+            };
 
-    </section>
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
+    
+            const existingIndex = cartItems.findIndex(item => item.name === productName);
+            if (existingIndex !== -1) {
+                cartItems[existingIndex].quantity += 1;
+            } else {
+                cartItems.push(cartItem);
+            }
+
+           
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            
+            const toast = new bootstrap.Toast(document.getElementById('addToCartToast'));
+            toast.show();
+        }
+
+        function showCartItems() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const container = document.querySelector('.cart-items');
+            const totalElement = document.getElementById('totalPrice');
+            let total = 0;
+
+            container.innerHTML = '';
+
+            cartItems.forEach((product, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+
+                cartItem.innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <img src="../Images/${product.name.toLowerCase().replace(/\s/g, '')}.jpg" alt="${product.name}" width="80">
+                        <div class="cart-item-content ml-3">
+                            <h5 class="cart-item-name">${product.name}</h5>
+                            <p class="cart-item-quantity">Quantity: ${product.quantity}</p>
+                            <p class="cart-item-price">Price: ₹${product.price * product.quantity}</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger" onclick="removeFromCart(${index})">Remove</button>
+                `;
+
+                container.appendChild(cartItem);
+                total += product.price * product.quantity;
+            });
+
+            totalElement.textContent = total;
+        }
+
+        function removeFromCart(index) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            showCartItems();
+        }
+
+        showCartItems();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+       
+
+     </section>
+    
 
     <box-icon name='shopping-bag'></box-icon>
     <i class='bx bx-shopping-bag'></i>  
+
+    <script src="..//Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+  
 </body>
+
 </html>

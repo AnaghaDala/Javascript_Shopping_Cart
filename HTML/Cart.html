@@ -1,59 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300;1,400;1,500&display=swap' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #2f1e4c;
+        }
+
+        .container {
+            background-color: #81aea3;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .card {
+            background-color:antiquewhite;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: auto;
+        }
+
+        .cart-price {
+            font-weight: bold;
+            color: #ff0000;
+        }
+
+        .cart-quantity {
+            width: 50px;
+            text-align: center;
+        }
+
+        .Total-Price {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        .btn-outline-danger {
+            margin-top: 10px;
+        }
+
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: #a3da2e;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 20px;
+        }
+
+        .column {
+            float: left;
+            width: 25%;
+            padding: 30px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        img {
+            border: 2px solid #555;
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .column {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-10 text-center p-1 text-danger">
-                <h2><u>Shopping Cart</u></h2>
+            <div class="col-md-10 text-center  p-1 text-dark">
+                <h2><i> My Shopping Cart</i></h2>
             </div>
             <div class="col-md-2 text-left text-danger p-4">
-                <i class='bx bx-exit'></i>
-                <a href="./Home.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Home</a>
+                <i class='bx bx-home'></i>
+                <a href="./home.html" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Home</a>
             </div>
         </div>
     </div>
-    </div>
-                </div>
-            </div>
+
+    <div class="container mt-4">
+        <div class="row" id="cart-items-container">
+            <!-- JavaScript code will add items here -->
         </div>
     </div>
-    <body></body>
-     <div class="container">
-            <div class="row">
-                <div class="col-md-3 p-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <img src="../product_images/dress.jpeg" class="card-img-top">
-                        </div>
-                        
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Dress</h5>
-                        <div class="cart-price">₹3000</div>
-                            <input type="number" class="cart-quantity" placeholder="Quantity" onchange="updateTotalPrice()" />
-                        </div>
-                        <div class="text-center">
-                            <div>Total</div>
-                            <div class="Total-Price" id="totalPrice">₹3000</div>
-                            <button type="submit" class="btn btn-danger">Order Now</button>
-                        <i class="bx bx-x-circle" id="close-cart"></i>
-                        </div>
+
+    <script>
+        // Retrieve cart items from local storage
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        const container = document.getElementById('cart-items-container');
+
+        // Function to create the card element
+        function createCard(product, index) {
+            const card = document.createElement('div');
+            card.classList.add('col-md-3', 'p-4');
+
+            card.innerHTML = `
+                <div class="card">
+                    <div class="card-header">
+                        <img src="${product.Images}" class="card-img-top">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">${product.name}</h5>
+                        <div class="cart-price">₹${product.price}</div>
+                        <input type="number" class="cart-quantity" placeholder="Quantity" value="${product.quantity}">
+                        <i class='bx bxs-shopping-bag'></i>
+                    </div>
+                    <div class="text-center">
+                        <div>Total</div>
+                        <div class="Total-Price">₹${product.price * product.quantity}</div>
+                        <button class="btn btn-outline-danger" onclick="updateQuantity(${index})">Update</button>
+                        <button class="btn btn-outline-danger" onclick="removeFromCart(${index})">Remove</button>
                     </div>
                 </div>
-            </div>
-        </div>
-    
-        <script>
-            function updateTotalPrice() {
-                var quantity = document.querySelector(".cart-quantity").value;
-                var price = 3000; // Price per item
-                var totalPrice = price * quantity;
-                document.querySelector("#totalPrice").textContent = "₹" + totalPrice;
-            }
-        </script>
-    
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    </body>
-    
+            `;
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+            return card;
+        }
+
+        // Function to update the quantity of an item
+        function updateQuantity(index) {
+            const quantityInput = container.children[index].querySelector('.cart-quantity');
+            const quantity = parseInt(quantityInput.value);
+            if (!isNaN(quantity) && quantity >= 0) {
+                cartItems[index].quantity = quantity;
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                container.innerHTML = '';
+                showItems();
+            }
+        }
+
+        // Function to remove an item from the cart
+        function removeFromCart(index) {
+            cartItems.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            container.innerHTML = '';
+            showItems();
+        }
+
+        // Function to display all items in the cart
+        function showItems() {
+            cartItems.forEach((product, index) => {
+                const card = createCard(product, index);
+                container.appendChild(card);
+            });
+        }
+
+        // Call the function to display items when the page loads
+        showItems();
+    </script>
+
+    <div class="container text-center mt-4">
+        <button class="btn btn-outline-danger" onclick="confirmOrder()">Confirm Your Order</button>
+    </div>
+
+    <script>
+        // Function to confirm the order and clear the cart
+        function confirmOrder() {
+            if (cartItems.length > 0) {
+                // Clear the cart and update local storage
+                cartItems.length = 0;
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                // Show a confirmation alert
+                alert('Your order has been confirmed! Thank you for shopping with us.');
+
+                // Refresh the cart page to update the displayed items
+                container.innerHTML = '';
+                showItems();
+            } else {
+                alert('Your cart is empty. Add items before confirming your order.');
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
+
+</html>
